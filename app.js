@@ -2,6 +2,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const students = require('./routes/student');
+// const router = require('express').Router();
+
 
 // Init App
 const app = express();
@@ -10,6 +13,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
+
+app.use("/student", students);
 
 // Listen on server
 
